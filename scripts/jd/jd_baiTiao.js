@@ -206,7 +206,7 @@ function msgShow() {
   let url ={"open-url" : "jdmobile://share?jumpType=7&jumpUrl=https%3A%2F%2Fm.jr.jd.com%2Fmember%2Fmc%2F%23%2Fhome"}
   for (let i in $.prize) {
     if (typeof ($.prize[i]) !== "object" ) continue;
-    if ($.message === "") $.message = `用户名：${$.prize[i].nickName}\n`;
+    $.message += `用户名：${$.prize[i].nickName}\n`;
     if ($.prize[i].respCode === "00000") {
       $.message += `${$.prize[i].desc}：${$.prize[i].prizeModels[0].prizeName + $.prize[i].prizeModels[0].prizeAward}\n`;
     }
