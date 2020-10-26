@@ -73,7 +73,6 @@ function serverNotify(text, desp) {
   return  new Promise(resolve => {
     if (SCKEY) {
       //微信server酱推送通知一个\n不会换行，需要两个\n才能换行，故做此替换
-      console.log (SCKEY);
       desp = desp.replace(/[\n\r]/g, '\n\n');
       const options = {
         url: `https://sc.ftqq.com/${SCKEY}.send`,
@@ -90,6 +89,7 @@ function serverNotify(text, desp) {
           } else {
             data = JSON.parse(data);
             if (data.errno === 0) {
+                    console.log (`https://sc.ftqq.com/${SCKEY}.send`);
               console.log('\nserver酱发送通知消息成功\n')
             } else if (data.errno === 1024) {
               console.log('\nPUSH_KEY 错误\n')
