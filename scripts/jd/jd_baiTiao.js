@@ -217,7 +217,7 @@ function msgShow() {
   }
   $.message += $.prize.addMsg ? $.prize.addMsg : "";
   $.msg($.name, '', `${$.message.substr(0,$.message.length - 1)}`, url);
-  notiMsg += $.message.substr(0,$.message.length - 1);
+  notiMsg += $.message.substr(0,$.message.length - 1) + `\n`;
 }
 
 
