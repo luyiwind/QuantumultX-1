@@ -7,6 +7,8 @@
 */
 const $ = new Env('天天领白条券');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
+let notify = $.isNode() ? require('./sendNotify.js') : '';
+$.message = "";
 //直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '';
 if ($.isNode()) {
@@ -66,9 +68,10 @@ let prize =
         $.prize.addMsg = `提　醒：请于今天使用周日专享白条券\n`
       }
       await queryMissionWantedDetail();
-      await msgShow();
     }
   }
+  await msgShow();
+  notify.sendNotify(`${$.name}`, `${$.message}\n`);
 })()
   .catch((e) => {
     $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
@@ -201,7 +204,6 @@ function randomWord(randomFlag, min, max){
 
 function msgShow() {
   let url ={"open-url" : "jdmobile://share?jumpType=7&jumpUrl=https%3A%2F%2Fm.jr.jd.com%2Fmember%2Fmc%2F%23%2Fhome"}
-  $.message = "";
   for (let i in $.prize) {
     if (typeof ($.prize[i]) !== "object" ) continue;
     if ($.message === "") $.message = `用户名：${$.prize[i].nickName}\n`;
