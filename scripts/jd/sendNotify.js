@@ -89,7 +89,6 @@ function serverNotify(text, desp) {
           } else {
             data = JSON.parse(data);
             if (data.errno === 0) {
-                    console.log (`https://sc.ftqq.com/${SCKEY}.send`);
               console.log('\nserver酱发送通知消息成功\n')
             } else if (data.errno === 1024) {
               console.log('\nPUSH_KEY 错误\n')
