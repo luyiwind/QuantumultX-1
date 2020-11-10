@@ -6,7 +6,7 @@
 0 9 * * * https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/scripts/jd/jd_baiTiao.js, tag=京东白条, img-url=https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/image/baitiao.png, enabled=true
 */
 const $ = new Env('天天领白条券');
-const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
+//const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 let notify = $.isNode() ? require('./sendNotify.js') : '';
 let notiMsg = '';
 //直接用NobyDa的jd cookie
@@ -71,7 +71,7 @@ let prize =
       await msgShow();
     }
   }
-  notify.sendNotify(`京东白条`, `${notiMsg}\n`);
+  //notify.sendNotify(`京东白条`, `${notiMsg}\n`);
 })()
   .catch((e) => {
     $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
