@@ -10,6 +10,8 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const printDetail = false;        //是否显示出参详情
 let cookieExpire = false;
 let lackCoin = false;
+let notify = $.isNode() ? require('./sendNotify.js') : '';
+let notiMsg = '';
 //直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '';
 if ($.isNode()) {
@@ -78,6 +80,7 @@ let prize =
       await msgShow();
     }
   }
+  notify.sendNotify(`京东白条`, `${notiMsg}\n`);
 })()
   .catch((e) => {
     $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
@@ -468,6 +471,7 @@ function msgShow() {
   }
   $.message += $.prize.addMsg ? $.prize.addMsg : "";
   $.msg($.name, '', `${$.message.substr(0,$.message.length - 1)}`, url);
+  notiMsg += $.message.substr(0,$.message.length - 1) + `\n`;
 }
 
 
