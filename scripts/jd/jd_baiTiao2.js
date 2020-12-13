@@ -40,7 +40,9 @@ let prize =
     //周六领
     {name : `prizeSaturday`, desc : `周六领`, id : `i9200831161952186922QB`},
     //周六领2
-    {name : `prizeSaturday2`, desc : `周六领`, id : `Q4295706b5Q9t2D6F181k3x8Q0v0W2e9JK`}
+    {name : `prizeSaturday2`, desc : `周六领`, id : `Q4295706b5Q9t2D6F181k3x8Q0v0W2e9JK`},
+    //3元信用卡
+    {name : `prizeCreditcard`, desc : `信用卡`, id : `Q629518539011K1C0S2s1f0Z2V9nE`},
   ]
 
 !(async () => {
@@ -77,6 +79,7 @@ let prize =
         $.prize.addMsg = `提　醒：请于今天使用周日专享白条券\n`
       }
       if (date.getHours() >= 8) await queryMissionWantedDetail();
+      await takePrize(prize[8]);
       await msgShow();
     }
   }
