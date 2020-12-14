@@ -43,7 +43,10 @@ let prize =
     {name : `prizeSaturday2`, desc : `周六领`, id : `Q4295706b5Q9t2D6F181k3x8Q0v0W2e9JK`},
     //3元信用卡
     {name : `prizeCreditcard`, desc : `信用卡`, id : `Q629518539011K1C0S2s1f0Z2V9nE`},
-  ]
+    {name : `prizeCreditcard`, desc : `其他1`, id : `Q92964042116101h27110e2u9p2`},
+    {name : `prizeCreditcard`, desc : `其他2`, id : `Q62971231113B6x1y9I0M2B1b0g2r9Q9`},
+    {name : `prizeCreditcard`, desc : `其他3`, id : `Q72m9P5k3K94223q5k5O1w228U2S8B040D2B9qt`},
+ ]
 
 !(async () => {
   if (!cookiesArr[0]) {
@@ -80,6 +83,9 @@ let prize =
       }
       if (date.getHours() >= 8) await queryMissionWantedDetail();
       await takePrize(prize[8]);
+      await takePrize(prize[9]);
+      await takePrize(prize[10]);
+      await takePrize(prize[11]);
       await msgShow();
     }
   }
