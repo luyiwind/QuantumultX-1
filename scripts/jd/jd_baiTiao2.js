@@ -45,8 +45,7 @@ let prize =
     {name : `prizeCreditcard`, desc : `信用卡`, id : `Q629518539011K1C0S2s1f0Z2V9nE`},
     {name : `prizeCreditcard`, desc : `其他1`, id : `Q92964042116101h27110e2u9p2`},
     {name : `prizeCreditcard`, desc : `其他2`, id : `Q62971231113B6x1y9I0M2B1b0g2r9Q9`},
-    {name : `prizeCreditcard`, desc : `其他3`, id : `Q72m9P5k3K94223q5k5O1w228U2S8B040D2B9qt`},
- ]
+  ]
 
 !(async () => {
   if (!cookiesArr[0]) {
@@ -85,7 +84,6 @@ let prize =
       await takePrize(prize[8]);
       await takePrize(prize[9]);
       await takePrize(prize[10]);
-      await takePrize(prize[11]);
       await msgShow();
     }
   }
